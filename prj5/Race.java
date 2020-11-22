@@ -123,11 +123,6 @@ public class Race {
     }
 
 
-    public String toOutput() {
-        return raceName + ", " + caseNum + ", " + deathNum;
-    }
-
-
     /**
      * equals() method for a race
      * 
