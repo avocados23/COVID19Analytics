@@ -1,7 +1,5 @@
 package prj5;
 
-import java.util.Comparator;
-
 // Virginia Tech Honor Code Pledge:
 //
 // As a Hokie, I will conduct myself with honor and integrity at all times.
@@ -97,6 +95,9 @@ public class Race {
      * @return CFR
      */
     public double getCFR() {
+        if (deathNum == -1 || caseNum == -1) {
+            return -1;
+        }
         float cfr = ((float)deathNum / (float)caseNum) * 100;
         return round(cfr);
     }
@@ -121,6 +122,10 @@ public class Race {
      * @return String representation of a race name, cases, and CFR ratio
      */
     public String toString() {
+        if (getCFR() % (int)getCFR() == 0) {
+            return raceName + ": " + caseNum + " cases, " + (int)getCFR()
+                + "% CFR";
+        }
         return raceName + ": " + caseNum + " cases, " + getCFR() + "% CFR";
     }
 
@@ -140,58 +145,6 @@ public class Race {
                 && caseNum == ((Race)obj).getCaseNum();
         }
         return false;
-    }
-
-    /**
-     * Comparator for CFR
-     * 
-     * @author Nam Tran
-     * @version 11.20.20
-     *
-     */
-    class SortByCFR implements Comparator<Race> {
-
-        /**
-         * Compares CFR.
-         * 
-         * @param a
-         *            First race
-         * @param b
-         *            Second race
-         * 
-         * @return difference between a and b
-         * 
-         */
-        public int compare(Race a, Race b) {
-            return (int)(a.getCFR() - b.getCFR());
-        }
-
-    }
-
-
-    /**
-     * Comparator for ABC
-     * 
-     * @author Nam Tran
-     * @version 11.20.20
-     *
-     */
-    class SortByABC implements Comparator<Race> {
-
-        /**
-         * Compares names.
-         * 
-         * @param a
-         *            First race
-         * @param b
-         *            Second race
-         * 
-         * @return difference of names between a and b
-         * 
-         */
-        public int compare(Race a, Race b) {
-            return a.getRaceName().compareTo(b.getRaceName());
-        }
     }
 
 }

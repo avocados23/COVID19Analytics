@@ -1,6 +1,7 @@
 package prj5;
 
 import java.util.Arrays;
+import student.TestCase;
 
 // Virginia Tech Honor Code Pledge:
 //
@@ -15,8 +16,6 @@ import java.util.Arrays;
  * @author Nam Tran (namht)
  * @version 11.20.20
  */
-
-import student.TestCase;
 
 public class StateTest extends TestCase {
 
