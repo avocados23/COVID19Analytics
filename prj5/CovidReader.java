@@ -1,6 +1,3 @@
-/**
- * 
- */
 package prj5;
 
 import java.io.FileNotFoundException;
@@ -10,7 +7,7 @@ import java.text.ParseException;
 
 /**
  * @author Omar Siddiqi
- *
+ * @version 11.20.20
  */
 public class CovidReader {
 
