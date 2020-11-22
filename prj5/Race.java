@@ -1,5 +1,7 @@
 package prj5;
 
+import java.util.Comparator;
+
 // Virginia Tech Honor Code Pledge:
 //
 // As a Hokie, I will conduct myself with honor and integrity at all times.
@@ -135,6 +137,32 @@ public class Race {
                 && caseNum == ((Race)obj).getCaseNum();
         }
         return false;
+    }
+
+    class SortByCFR implements Comparator<Race> {
+
+        /**
+         * Compares CFR.
+         * 
+         * @return CFR difference
+         */
+        public int compare(Race a, Race b) {
+            return (int)(a.CFR() - b.CFR());
+        }
+
+    }
+
+
+    class SortByABC implements Comparator<Race> {
+        
+        /**
+         * Compares race names.
+         * 
+         * @return race in ABC order
+         */
+        public int compare(Race a, Race b) {
+            return a.getRaceName().compareTo(b.getRaceName());
+        }
     }
 
 }
