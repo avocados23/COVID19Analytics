@@ -95,7 +95,20 @@ public class Race {
      * @return CFR
      */
     public double CFR() {
-        return (deathNum / caseNum) * 100;
+        return round((deathNum / caseNum) * 100);
+    }
+
+
+    /**
+     * Rounds CFR to one decimal place.
+     * 
+     * @param val
+     *            Value to be passed
+     * @return decimal version of val to one decimal place
+     */
+    private double round(double val) {
+        int scale = (int)Math.pow(10, 1);
+        return (double)Math.round(val * scale) / scale;
     }
 
 
