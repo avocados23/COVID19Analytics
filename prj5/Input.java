@@ -1,6 +1,3 @@
-/**
- * 
- */
 package prj5;
 
 import java.io.*;
@@ -9,14 +6,15 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 /**
- * @author
+ * @author Omar Siddiqi
+ * @version 11.20.20
  *
  */
 public class Input {
 
     /**
      * 
-     * the project runner
+     * The project runner
      * 
      * @param args
      * 
