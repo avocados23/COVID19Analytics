@@ -24,7 +24,7 @@ public class LinkedList<E> implements LList<E> {
      * Implementation of a node that is used in the LinkedList class
      * 
      * @author Jonathan Awad (jonathana)
-     * @verson 2020.11.21
+     * @version 2020.11.21
      * @param <D>
      *            This is the type of object that this class will store
      */
@@ -459,12 +459,22 @@ public class LinkedList<E> implements LList<E> {
         return false;
     }
 
+    /**
+     * CovidIterator class
+     * 
+     * @author Nam Tran (namht)
+     * @version 11.20.20
+     * @param <A>
+     */
     private class CovidIterator<A> implements Iterator<E> {
 
         private Node<E> curr;
         private Node<E> prev;
         private boolean calledNext = false;
 
+        /**
+         * CovidIterator constructor.
+         */
         public CovidIterator() {
             curr = head;
             prev = null;

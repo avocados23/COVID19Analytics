@@ -26,10 +26,6 @@ public class State {
      * 
      * @param sn
      *            State name
-     * @param tC
-     *            Total cases of COVID-19 in the state
-     * @param d
-     *            Total deaths of COVID-19 in the state
      * @param r
      *            Races stored in an array within the State
      */

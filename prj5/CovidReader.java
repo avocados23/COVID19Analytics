@@ -30,7 +30,15 @@ public class CovidReader {
      */
     public CovidReader(String fileName) {
         LinkedList<State> stateFile = readStates(fileName);
-//        CovidCalculator cc = new CovidCalculator(stateFile);
+        CovidCalculator cc = new CovidCalculator(stateFile);
+
+        for (int i = 0; i < 6; i++) {
+            System.out.println(stateFile.get(i).getStateName());
+            cc.sortByABC(stateFile.get(i));
+            System.out.println("=====");
+            cc.sortByCFR(stateFile.get(i));
+            System.out.println("=====");
+        }
     }
 
 
@@ -51,6 +59,13 @@ public class CovidReader {
                 String[] stateInfo = stateInfoLines[i].split(", *");
 
                 String stateName = stateInfo[0];
+
+                // checker for NA
+                for (int j = 1; j <= 10; j++) {
+                    if (stateInfo[j].equals("NA")) {
+                        stateInfo[j] = "-1";
+                    }
+                }
                 int whiteCases = Integer.parseInt(stateInfo[1]);
                 int blackCases = Integer.parseInt(stateInfo[2]);
                 int latinXCases = Integer.parseInt(stateInfo[3]);
