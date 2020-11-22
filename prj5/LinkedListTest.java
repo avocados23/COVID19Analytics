@@ -1,5 +1,8 @@
 package prj5;
+
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 // Virginia Tech Honor Code Pledge:
 //
@@ -406,5 +409,81 @@ public class LinkedListTest extends student.TestCase {
     public void testToString() {
         assertEquals("{soccer, swimming, gymnastics}", smallListA.toString());
         assertEquals("{}", emptyListA.toString());
+    }
+
+
+    /**
+     * test hasNext() for iterator method
+     */
+    public void testHasNext() {
+        LinkedList<String> ll = new LinkedList<String>();
+        ll.add("one");
+        ll.add("two");
+        ll.add("three");
+
+        Iterator<String> iter = ll.iterator();
+
+        assertTrue(iter.hasNext());
+        iter.next();
+        iter.next();
+        assertFalse(iter.hasNext());
+    }
+
+
+    /**
+     * test next() method for iterator method
+     */
+    public void testNext() {
+        LinkedList<String> ll = new LinkedList<String>();
+
+        ll.add("one");
+        ll.add("two");
+        ll.add("three");
+
+        Iterator<String> iter = ll.iterator();
+
+        assertEquals("two", iter.next()); // ignore the void warning on here
+        // right now; @Override is called
+        iter.next();
+
+        Exception exception = null;
+        try {
+            iter.next();
+            fail("next() is not throwing an exception when it should");
+        }
+        catch (Exception e) {
+            exception = e;
+        }
+        assertTrue("next() is throwing the wrong type of exceptions",
+            exception instanceof NoSuchElementException);
+    }
+
+
+    /**
+     * test remove() method
+     */
+    public void testRemoveIterator() {
+        LinkedList<String> ll = new LinkedList<String>();
+
+        ll.add("hola");
+        ll.add("hello");
+        ll.add("bonjour");
+
+        Iterator<String> iter = ll.iterator();
+
+        Exception exception = null;
+        try {
+            iter.remove();
+            fail("remove() is not throwing an exception when it should");
+        }
+        catch (Exception e) {
+            exception = e;
+        }
+        assertTrue("remove() is throwing the wrong type of exceptions",
+            exception instanceof IllegalStateException);
+
+        iter.next();
+        iter.remove();
+        assertTrue(ll.toString().equals("{hola, hello}"));
     }
 }

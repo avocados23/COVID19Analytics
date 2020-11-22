@@ -477,7 +477,7 @@ public class LinkedList<E> implements LList<E> {
          * @return true if there are more elements in the list
          */
         public boolean hasNext() {
-            return curr.next().getData() != null;
+            return (curr.getData() != null && curr.next() != null);
         }
 
 
