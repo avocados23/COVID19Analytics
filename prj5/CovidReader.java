@@ -30,6 +30,7 @@ public class CovidReader {
      */
     public CovidReader(String fileName) {
         LinkedList<State> stateFile = readStates(fileName);
+//        CovidCalculator cc = new CovidCalculator(stateFile);
     }
 
 

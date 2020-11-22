@@ -66,7 +66,7 @@ public class RaceTest extends student.TestCase {
     public void testCFR() {
         race.setDeathNum(1);
         race.setCaseNum(1);
-        assertEquals(100, race.CFR(), .1);
+        assertEquals(100, race.getCFR(), .1);
     }
     
     /**

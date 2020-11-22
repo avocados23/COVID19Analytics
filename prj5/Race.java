@@ -96,7 +96,7 @@ public class Race {
      * 
      * @return CFR
      */
-    public double CFR() {
+    public double getCFR() {
         float cfr = ((float)deathNum / (float)caseNum) * 100;
         return round(cfr);
     }
@@ -121,14 +121,17 @@ public class Race {
      * @return String representation of a race name, cases, and CFR ratio
      */
     public String toString() {
-        return raceName + ": " + caseNum + " cases, " + CFR() + "% CFR";
+        return raceName + ": " + caseNum + " cases, " + getCFR() + "% CFR";
     }
 
 
     /**
-     * equals() method for a race
+     * my equals() method.
      * 
-     * @return true if a race has the same name, same cases, and same death
+     * @param obj
+     *            Object to compare to.
+     * 
+     * @return true if they are equal in race, death, and cases
      */
     public boolean equals(Object obj) {
         if (obj instanceof Race) {
@@ -139,26 +142,52 @@ public class Race {
         return false;
     }
 
+    /**
+     * Comparator for CFR
+     * 
+     * @author Nam Tran
+     * @version 11.20.20
+     *
+     */
     class SortByCFR implements Comparator<Race> {
 
         /**
          * Compares CFR.
          * 
-         * @return CFR difference
+         * @param a
+         *            First race
+         * @param b
+         *            Second race
+         * 
+         * @return difference between a and b
+         * 
          */
         public int compare(Race a, Race b) {
-            return (int)(a.CFR() - b.CFR());
+            return (int)(a.getCFR() - b.getCFR());
         }
 
     }
 
 
+    /**
+     * Comparator for ABC
+     * 
+     * @author Nam Tran
+     * @version 11.20.20
+     *
+     */
     class SortByABC implements Comparator<Race> {
-        
+
         /**
-         * Compares race names.
+         * Compares names.
          * 
-         * @return race in ABC order
+         * @param a
+         *            First race
+         * @param b
+         *            Second race
+         * 
+         * @return difference of names between a and b
+         * 
          */
         public int compare(Race a, Race b) {
             return a.getRaceName().compareTo(b.getRaceName());
