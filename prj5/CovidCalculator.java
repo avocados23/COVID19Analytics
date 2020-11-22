@@ -6,7 +6,6 @@ package prj5;
 // who do.
 // --Jonathan Awad (jonathana)
 
-<<<<<<< Updated upstream
 // Virginia Tech Honor Code Pledge:
 //
 // As a Hokie, I will conduct myself with honor and integrity at all times.
@@ -21,16 +20,15 @@ package prj5;
  * @version 11.20.20
  */
 
-=======
 import java.util.Arrays;
 
 /**
  * Sorts the states by alphabetical order and the races by highest to lowest CFR
  * 
  * @author Jonathan Awad (jonathana)
- * @verson 2020.11.21
+ * @version 2020.11.21
  */
->>>>>>> Stashed changes
+
 public class CovidCalculator {
 
     /**
@@ -50,6 +48,7 @@ public class CovidCalculator {
         states = new State[NUM_STATES];
     }
 
+
     /**
      * sorts the states by alphabetical order
      */
@@ -63,6 +62,7 @@ public class CovidCalculator {
      * sorts the states by Case Fatality Ratio
      */
     public void sortByCFR() {
-
+        State[] sortCFR = Arrays.copyOf(states, states.length);
+        Arrays.sort(sortCFR, 0, sortCFR.length);
     }
 }
