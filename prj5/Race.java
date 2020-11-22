@@ -95,7 +95,8 @@ public class Race {
      * @return CFR
      */
     public double CFR() {
-        return round((deathNum / caseNum) * 100);
+        float cfr = ((float)deathNum / (float)caseNum) * 100;
+        return round(cfr);
     }
 
 
@@ -119,6 +120,11 @@ public class Race {
      */
     public String toString() {
         return raceName + ": " + caseNum + " cases, " + CFR() + "% CFR";
+    }
+
+
+    public String toOutput() {
+        return raceName + ", " + caseNum + ", " + deathNum;
     }
 
 
