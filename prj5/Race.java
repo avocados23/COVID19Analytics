@@ -10,7 +10,7 @@ package prj5;
 /**
  * The Race class
  * 
- * @author Nam Tran
+ * @author Nam Tran (namht)
  * @version 11.20.20
  *
  */
