@@ -1,40 +1,64 @@
+/**
+ * 
+ */
 package prj5;
-// Virginia Tech Honor Code Pledge:
-//
-// As a Hokie, I will conduct myself with honor and integrity at all times.
-// I will not lie, cheat, or steal, nor will I accept the actions of those
-// who do.
-// --Jonathan Awad (jonathana)
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.text.ParseException;
+import java.io.File;
 import java.util.Scanner;
-import spacecolonies.SpaceColonyDataException;
+import java.text.ParseException;
 
 /**
- * Parses through the necessary files and extracts their information
- * 
- * @author Jonathan Awad (jonathana)
- * @version 2020.11.21
+ * @author Omar Siddiqi
+ *
  */
 public class CovidReader {
 
+    private State[] states;
     private LinkedList<State> listOfStates;
 
-    public CovidReader(String stateFileName)
-        throws FileNotFoundException,
+    @SuppressWarnings("unused")
+    public CovidReader(String state)
+
+        throws InformationException,
+
         ParseException,
-        InformationException {
-        listOfStates = readStatesFile(stateFileName);
-        // need to add window and calculator instances
+
+        FileNotFoundException {
+
+        listOfStates = readListFile(theList);
+
+        states = readStateFile(state);
+
+        CovidFrontEnd window = new CovidFrontEnd(new CovidCalculator(
+            listOfStates, states));
+
     }
 
 
-    private LinkedList<State> readStatesFile(String fileName)
-        throws FileNotFoundException,
+    private State[] readStateFile(String fileName)
+        throws InformationException,
+
         ParseException,
-        InformationException {
-        Scanner scanner = new Scanner(new File(fileName));
+
+        FileNotFoundException {
+
+        State[] states = new State();
+        Scanner value1 = new Scanner(new File(fileName));
+
     }
+
+
+    private LinkedList<State> readListFile(String fileName)
+        throws InformationException,
+
+        ParseException,
+
+        FileNotFoundException {
+
+        LinkedList<State> listOfStates = new LinkedList();
+        Scanner value2 = new Scanner(new File(fileName));
+
+    }
+
 }
