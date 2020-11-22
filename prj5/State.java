@@ -86,4 +86,14 @@ public class State {
         return deaths;
     }
 
+    /**
+     * Test method
+     */
+    public void toOutput() {
+        System.out.println(stateName);
+        for (int k = 0; k < races.length; k++) {
+            System.out.println(races[k].toString());
+        }
+    }
+
 }
