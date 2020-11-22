@@ -70,9 +70,8 @@ public class CovidReader2 {
                 races[3] = new Race("asian", asianCases, asianDeaths);
                 races[4] = new Race("other", otherCases, otherDeaths);
 
-                for (int j = 0; j < races.length; j++) {
-                    states.add(new State(stateName, races));
-                }
+                states.add(new State(stateName, races));
+                i++;
             }
         }
         catch (FileNotFoundException e) {
