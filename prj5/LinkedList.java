@@ -1,4 +1,8 @@
 package prj5;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 // Virginia Tech Honor Code Pledge:
 //
 // As a Hokie, I will conduct myself with honor and integrity at all times.
@@ -453,6 +457,74 @@ public class LinkedList<E> implements LList<E> {
         }
 
         return false;
+    }
+
+    private class CovidIterator<A> implements Iterator<E> {
+
+        private Node<E> curr;
+        private Node<E> prev;
+        private boolean calledNext = false;
+
+        public CovidIterator() {
+            curr = head;
+            prev = null;
+        }
+
+
+        /**
+         * Checks if there are more elements in the list
+         *
+         * @return true if there are more elements in the list
+         */
+        public boolean hasNext() {
+            return curr.next().getData() != null;
+        }
+
+
+        /**
+         * Gets the next value in the list
+         *
+         * @return the next value
+         * @throws NoSuchElementException
+         *             if there are no nodes left in the list
+         */
+        public E next() {
+            if (!this.hasNext()) {
+                throw new NoSuchElementException();
+            }
+            prev = curr;
+            curr = curr.next();
+            calledNext = true;
+            return curr.getData();
+        }
+
+
+        /**
+         * Removes the last object returned with next() from the list
+         *
+         * @throws IllegalStateException
+         *             if next has not been called yet
+         *             and if the element has already been removed
+         */
+        @Override
+        public void remove() {
+            if (!calledNext || this.next() == null) {
+                throw new IllegalStateException();
+            }
+            // unlink node from ll
+            prev.setNext(curr.next());
+            size--;
+        }
+
+    }
+
+    /**
+     * Iterator method creates Iterator object
+     *
+     * @return new Iterator object
+     */
+    public Iterator<E> iterator() {
+        return new CovidIterator<E>();
     }
 
 }
