@@ -31,6 +31,7 @@ public class CovidReader {
     public CovidReader(String fileName) {
         LinkedList<State> stateFile = readStates(fileName);
         CovidCalculator cc = new CovidCalculator(stateFile);
+        new GUICovidWindow(cc);
 
         for (int i = 0; i < 6; i++) {
             System.out.println(stateFile.get(i).getStateName());
